@@ -81,9 +81,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>お茶を組む</td>
+                                <tr v-for="todo in todos" :key="todo.id">
+                                    <td>@{{ todo.id }}</td>
+                                    <td>@{{ todo.title }}</td>
                                     <td><button class="btn btn-primary">完了</button></td>
                                 </tr>
                             </tbody>
@@ -91,9 +91,9 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="タスクを入力してください">
+                            <input type="text" class="form-control" placeholder="タスクを入力してください" v-model="new_todo">
                             <span class="input-group-btn">
-                                <button class="btn btn-success" type="button">登録</button>    
+                                <button class="btn btn-success" type="button" v-on:click="addTodo">登録</button>    
                             </span>
                         </div>
                     </div>
