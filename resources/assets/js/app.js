@@ -28,15 +28,22 @@ const app = new Vue({
       })
     },
     addTodo: function () {
-        axios.post('/api/add', {
-            title: this.new_todo
-        }).then((res) => {
-            this.todos = res.data
-            this.new_todo = ''
-        })
+      axios.post('/api/add', {
+        title: this.new_todo
+      }).then((res) => {
+        this.todos = res.data
+        this.new_todo = ''
+      })
+    },
+    deleteTodo: function (taskid) {
+      axios.delete('/api/del', {
+        id: taskid
+      }).then((res) => {
+        this.todos = res.data
+      })
     }
   },
   created () {
     this.fetchTodos()
   }
-});
+})

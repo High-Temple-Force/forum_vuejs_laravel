@@ -17,5 +17,12 @@
 */
 
 Route::get('/{app}', function () {
-    return view('welcome');
+    return view('home');
 })->where('app', '.*');
+
+/*
+Route::group(['middleware' => ['web']], function() {
+    Route::auth();
+    Route::get('/', 'home');
+});
+*/

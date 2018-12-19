@@ -1010,6 +1010,15 @@ var app = new Vue({
         _this2.todos = res.data;
         _this2.new_todo = '';
       });
+    },
+    deleteTodo: function deleteTodo(taskid) {
+      var _this3 = this;
+
+      axios.post('/api/del', {
+        id: taskid
+      }).then(function (res) {
+        _this3.todos = res.data;
+      });
     }
   },
   created: function created() {

@@ -84,7 +84,7 @@
                                 <tr v-for="todo in todos" :key="todo.id">
                                     <td>@{{ todo.id }}</td>
                                     <td>@{{ todo.title }}</td>
-                                    <td><button class="btn btn-primary">完了</button></td>
+                                    <td><button class="btn btn-primary" v-on:click="deleteTodo(todo.id)">完了</button></td>
                                 </tr>
                             </tbody>
                         </table>
